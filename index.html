@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rifa Alexa Echo Show 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🎉Gran Rifa: Alexa Echo Show 8🎉</h1>
+        <p>Costo por boleto: <strong>$50 MXN</strong></p>
+    </header>
+
+    <section class="premio">
+        <div class="imagen-premio">
+            <img src="alexa.jpeg" alt="Premio Alexa Echo Show 8">
+        </div>
+    </section>
+
+
+    <main>
+        <section class="numeros-container">
+            <h2>Elige tu número:</h2>
+            </br>
+            <div class="grid-numeros" id="numeros">
+                <!-- Aquí se generarán los 100 números con JS -->
+            </div>
+        </section>
+
+        <section class="datos-pago">
+            <h2>Datos de Pago</h2>
+            <label class="fw-bold mb-2 text-emphasis">Transfiere tu pago a esta tarjeta:</label>
+            <div class="tarjeta-bbva">
+                <div class="tarjeta-header">
+                    <div class="banco">BBVA</div>
+                    <div class="tipo">Débito</div>
+                </div>
+                <div class="numero-tarjeta">4152 3138 4407 2004</div>
+                <div class="tarjeta-footer">
+                    <div>
+                        <div class="etiqueta">Nombre</div>
+                        <div class="titular">Herman Enrique Primo Escobar</div>
+                    </div>
+                </div>
+            </div>
+            <label class="fw-bold mb-2 text-emphasis">Envia el comprobante al: 9171161534</label>
+            </br>
+            <label class="fw-bold mb-2 text-emphasis">(Pago solo válido con el comprobante)</label>
+        </section>
+
+        </br>
+
+        <section class="participantes">
+            <h2>Números vendidos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Contacto</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-participantes">
+                    <!-- Aquí se mostrará la lista con JS -->
+                </tbody>
+            </table>
+        </section>
+
+
+    </main>
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="cerrar-modal" class="cerrar">&times;</span>
+            <p id="mensaje-modal"></p>
+        </div>
+    </div>
+
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

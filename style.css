@@ -1,0 +1,232 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #252e34;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 18px;
+  color: #af1716;
+}
+
+/* Numeritos */
+.numeros-container {
+  margin-bottom: 40px;
+}
+
+.grid-numeros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.grid-numeros div {
+  background-color: #ffffff;
+  border: 2px solid #8c1614;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.grid-numeros div.vendido {
+  background-color: #8c1614;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Participantes */
+.participantes {
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.participantes table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.participantes th, .participantes td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.participantes th {
+  background-color: #252e34;
+  color: white;
+}
+
+/* Datos de pago */
+.datos-pago {
+  text-align: center;
+}
+
+.tarjeta-pago {
+  background-color: #252e34;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.tarjeta-pago img {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.nota {
+  font-size: 13px;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* Responsive ajustes */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .grid-numeros {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .tarjeta-pago {
+    padding: 15px;
+  }
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.cerrar {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Tarjeta estilo real */
+.tarjeta-bbva {
+  background: linear-gradient(135deg, #00b1d4, #0094c3);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.tarjeta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tarjeta-header .banco {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.tarjeta-header .tipo {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.numero-tarjeta {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.tarjeta-footer .etiqueta {
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.tarjeta-footer .titular {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.premio {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.premio h2 {
+  color: #252e34;
+  margin-bottom: 15px;
+}
+
+.imagen-premio img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.imagen-premio img:hover {
+  transform: scale(1.03);
+}
+
+.numero-tarjeta,
+.tarjeta-footer,
+.tarjeta-footer .etiqueta,
+.tarjeta-footer .titular {
+  text-align: left;
+}
