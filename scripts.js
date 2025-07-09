@@ -1,3 +1,4 @@
+// Lista de números vendidos
 const vendidos = [
   { numero: 2, nombre: "Juan Pérez", contacto: "juan@gmail.com" },
   { numero: 17, nombre: "Ana López", contacto: "ana.lopez@gmail.com" },
@@ -5,6 +6,7 @@ const vendidos = [
   { numero: 99, nombre: "María Torres", contacto: "maria.torres@correo.com" }
 ];
 
+// Generar los 100 números
 function generarNumeros() {
   const contenedor = document.getElementById("numeros");
 
@@ -21,7 +23,7 @@ function generarNumeros() {
       numeroDiv.dataset.estado = "disponible";
     }
 
-    // Evento para mostrar el modal al hacer click
+    // Al dar clic mostrar modal con info del número
     numeroDiv.addEventListener("click", () => {
       mostrarModal(numeroDiv.innerText, numeroDiv.dataset.estado, numeroDiv.dataset.nombre);
     });
@@ -30,6 +32,7 @@ function generarNumeros() {
   }
 }
 
+// Llenar la tabla de participantes
 function llenarTabla() {
   const tabla = document.getElementById("lista-participantes");
 
@@ -43,7 +46,7 @@ function llenarTabla() {
     celdaNombre.innerText = part.nombre;
 
     const celdaContacto = document.createElement("td");
-    celdaContacto.innerText = ocultarContacto(part.contacto); // Aquí llamamos a una función
+    celdaContacto.innerText = ocultarContacto(part.contacto);
 
     fila.appendChild(celdaNumero);
     fila.appendChild(celdaNombre);
@@ -53,14 +56,12 @@ function llenarTabla() {
   });
 }
 
-// Nueva función para proteger el contacto
+// Ocultar parte del contacto
 function ocultarContacto(contacto) {
-  // Si es número (solo dígitos y tiene 10)
   if (/^\d{10}$/.test(contacto)) {
     return "******" + contacto.slice(-4);
   }
 
-  // Si es correo
   if (contacto.includes("@")) {
     const [usuario, dominio] = contacto.split("@");
     const primeraLetra = usuario.charAt(0);
@@ -68,12 +69,10 @@ function ocultarContacto(contacto) {
     return `${primeraLetra}${oculto}@${dominio}`;
   }
 
-  // Otro formato (no válido), se regresa tal cual
   return contacto;
 }
 
-
-// Modal
+// Mostrar modal del número
 function mostrarModal(numero, estado, nombre = "") {
   const modal = document.getElementById("modal");
   const mensaje = document.getElementById("mensaje-modal");
@@ -87,20 +86,34 @@ function mostrarModal(numero, estado, nombre = "") {
   modal.style.display = "flex";
 }
 
-// Cerrar el modal
-document.addEventListener("DOMContentLoaded", () => {
-  generarNumeros();
-  llenarTabla();
-
+// Cerrar modal
+function configurarModal() {
   const cerrar = document.getElementById("cerrar-modal");
   const modal = document.getElementById("modal");
 
   cerrar.addEventListener("click", () => modal.style.display = "none");
 
-  // También cerrar si clic fuera del modal
   window.addEventListener("click", (e) => {
     if (e.target == modal) {
       modal.style.display = "none";
     }
   });
+}
+
+// Efecto flip de la tarjeta del premio
+function configurarFlip() {
+  const flipCard = document.getElementById("flip-card");
+  if (flipCard) {
+    flipCard.addEventListener("click", () => {
+      flipCard.classList.toggle("girado");
+    });
+  }
+}
+
+// Ejecutar al cargar
+document.addEventListener("DOMContentLoaded", () => {
+  generarNumeros();
+  llenarTabla();
+  configurarModal();
+  configurarFlip();
 });
